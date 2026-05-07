@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tasbeeh Counter (Advanced)</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: #fff;
+      }
+      .container {
+        text-align: center;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        max-width: 400px;
+        width: 90%;
+      }
+      h1 {
+        font-size: 4rem;
+        margin: 20px 0;
+        font-weight: bold;
+        color: #ffd700;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      }
+      button {
+        background: linear-gradient(45deg, #ffd700, #ff8c00);
+        border: none;
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        color: #000;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        margin-bottom: 20px;
+      }
+      button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      }
+      img {
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+        transition: transform 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+      }
+      img:hover {
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button>Count</button>
+      <button class="btn">Reset</button>
+
+      <h1>0</h1>
+      <img
+        src="imgfolder/Tasbeeh.png"
+        alt="Tasbeeh Image"
+        width="200px"
+        height="200px"
+      />
+    </div>
+  </body>
+  <script>
+    // Js tasbeh Project
+    console.log("Js tasbeh Project");
+    let count = 0;
+    let button = document.querySelector("button");
+    let resetButton = document.querySelectorAll(".btn");
+    let h1 = document.querySelector("h1");
+    let image = document.querySelector("img");
+
+    button.addEventListener("click", () => {
+      count++;
+      h1.textContent = count;
+
+      if (count >= 0 && count <= 33) {
+        image.src = "imgfolder/subhanallah.png";
+       
+      } else if (count > 33 && count <= 66) {
+        image.src = "imgfolder/allhamdulillah.webp";
+        
+      } else if (count > 66 && count <= 99) {
+        image.src = "imgfolder/allahuakbar.webp";
+        
+      } else if (count >= 100) {
+        count = 0;
+      }
+    });
+
+    resetButton.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        count = 0;
+        h1.textContent = count;
+        image.src = "imgfolder/Tasbeeh.png";
+      });
+    });
+  </script>
+</html>
+
